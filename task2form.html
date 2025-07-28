@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+<body>
+    <h2>please fill the boxes below</h2>
+    <form>
+        <label >full name &nbsp;</label> 
+        <input type="text" name="fullname" id="fullname" placeholder="enter your full name" required> <br>
+
+        <label > email &nbsp;&nbsp; </label> 
+        <input type="email" name="email" id="email" placeholder="enter your email" required> <br>
+        <label >phone number &nbsp; &nbsp;</label> 
+        <input type="tel" name="phone" id="phone" placeholder="enter your phone number" required> <br>
+
+        <label >preference</label> 
+        <input type="checkbox" name="preference" id="preference" value="exchange"> exchange my current cylinder with prefilled one <br>
+        <input type="checkbox" name="preference" id="preference2" value="refill">pick my cylinder ,  refill and return it to my location <br> <br>
+
+        <label > my cylinder size </label> <br>
+        <select name="cylinder">
+            <option value="">.....</option>
+        </select> <br> <br>
+
+        <label >quality reqiured &nbsp;</label> 
+        <input type="text" name="quality" id="quality" placeholder="enter the quality required" required> <br>
+        <label >amount &nbsp;</label> 
+        <input type="text" name="amount" id="amount" placeholder="enter the amount required" required> <br>
+
+        <label > delivery address (please include nearrest landmark)</label> 
+        <textarea name="address" id="address" cols="30" rows="4" placeholder="enter your delivery address"></textarea> <br> <br>
+        <br>
+        <input type="submit" value="place order">
+    </form>
+    
+</body>
+</html>
