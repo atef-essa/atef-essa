@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- inline and block element-->
+     <span></span> <!--  inline تمييز -->
+     <p>
+        hi i  <span>am</span> atef 
+     </p>
+    <div> <!--block -->
+
+    </div>
+    <!--naming-->
+    <div id="nav"></div>
+    <!--semantic tags-->
+    <nav></nav>
+    <header></header>
+    <aside></aside>
+    <section></section>
+    <article></article>
+    <footer></footer>
+    <summary></summary>
+    <figure>
+        <img src="../S1/icons/black-png-image_13659847.png" width="200">
+        <figcaption>test</figcaption>
+    </figure>
+    <!--video-->
+    <video width="50%" height="200" muted>
+        <source src="../S2/SampleVideo_720x480_5mb.mp4" type="video/mp4">
+    </video>
+    <!--audio-->
+    <audio controls >
+        <source src="../S2/SampleAudio_0.4mb.mp3" type="audio/mpeg">
+    </audio>
+    <!--iframe-->
+    <iframe src="https://www.youtube.com/embed/9bZkp7q19f0" width="70%" height="300" autoplay muted="1">
+    </iframe>
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d234991.4088769981!2d31.452052457214275!3d30.160448173849193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1753690369786!5m2!1sen!2seg"
+     width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+     <!-- entities-->
+      <section>
+        <p>
+             hello atef  &copy; &reg; &euro; &yen; &cent; &pound; &sect; &deg; &times; &divide;
+            &lt; &gt; &amp; &quot; &apos; &nbsp; &#128514;
+        </p>
+      </section>
+        <!-- address + qoutes -->
+         <address>
+            cairo egypt <q>el maadi</q>
+         </address>
+         <!-- form and their tags -->
+          <form actions="about.html" method="post" target="_blank" >
+            <!--input with types and labels -->
+             <input type="text" placeholder="enter ur name " value="atef" name="username" id="usernameid">
+             <input type="submit"><br>
+             <label >password</label>
+             <input type="password"><br>
+             <label>email</label>
+             <input type="email"><br>
+             <label>color</label>
+             <input type="color"><br>
+             <label>date</label>
+             <input type="date"><br>
+                <label>month</label>
+             <input type="month"> <br>
+             <label >gender</label>
+             <input type="radio" name="gender" value="male">male
+             <br>
+                <input type="radio" name="gender" value="female">female <br>
+
+                <input type="checkbox" disabled >HTML. <br>
+                <input type="checkbox" checked>CSS. <br>
+                <input type="checkbox">JavaScript.
+                <label >hidden</label> <br>
+                <input type="hidden"> <br>
+                <label>file</label>
+                <input type="file" accept=".png, .jpg, .jpeg, .gif"><br>
+                <label>submit</label> <br>
+                <textarea rows="5" cols="500"></textarea>
+                <input type="datetime-local" name="datetime"><br>
+                <input type="range">
+
+                <input type="button" value=mybutton >
+                <button type="button">btn</button>
+                <button type="submit">btm</button> <br>
+
+                <select name="data">
+                    <option value="1">html.</option>
+                    <option value="2">css.</option>
+                    <option value="3">js.</option>
+                    <option value="4">php.</option>
+                </select>
+                <br>
+                <select >
+                    <optgroup label="web languages">
+                        <option value="html.">html.</option>
+                        <option value="css.">css.</option>
+                        <option value="js.">js.</option>
+                        <option value="php.">php.</option>
+                    </optgroup>
+                    <optgroup label="backend languages">
+                        <option value="python">python</option>
+                        <option value="java">java</option>
+                        <option value="c#">c#</option>
+                        <option value="c++">c++</option>
+
+                    </optgroup>
+
+                </select>
+                <br><br><br><br>
+
+        
+           
+          </form>
+
+
+
+
+</body>
+</html>
