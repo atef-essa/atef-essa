@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fashion Products</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+
+  input[type="checkbox"] {
+    accent-color: #000;
+  }
+  
+  .brands-scroll {
+    max-height: 150px;
+    overflow-y: auto;
+  }
+  
+  .product-card:hover {
+    box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
+    transition: box-shadow 0.25s ease-in-out;
+  }
+  
+  .view-icons > button {
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+  }
+  .view-icons > button:hover {
+    background-color: #f0f0f0;
+  }
+</style>
+</head>
+<body class="bg-white text-gray-900 font-sans">
+
+<header class="w-full border-b border-gray-200 sticky top-0 bg-white z-50">
+  <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center space-x-4">
+      <strong class="text-2xl font-bold">M<span class="text-red-600">ē</span>rto</strong>
+      <div class="hidden sm:flex items-center text-xs space-x-1 text-gray-600">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 8c0 8 7 14 7 14s7-6 7-14M22 8a10 10 0 11-20 0 10 10 0 0120 0z"/></svg>
+        <span>Contact us 24/7 <strong class="text-black">(+92) 3942 7879</strong></span>
+      </div>
+    </div>
+    <form class="flex items-center border border-gray-300 rounded overflow-hidden max-w-lg w-full sm:w-auto" aria-label="Search products">
+      <select class="p-2 border-r border-gray-300 bg-white text-sm" aria-label="Select category">
+        <option>All Categories</option>
+        <option>Men</option>
+        <option>Women</option>
+        <option>Accessories</option>
+      </select>
+      <input type="search" class="px-2 py-2 flex-grow outline-none text-sm" placeholder="Search" aria-label="Search input" />
+      <button type="submit" class="px-3 bg-black text-white hover:bg-gray-900" aria-label="Search button">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m0 0a7.5 7.5 0 1110.6-10.6 7.5 7.5 0 01-10.6 10.6z"/></svg>
+      </button>
+    </form>
+    <div class="hidden sm:flex items-center space-x-4 text-gray-600 text-sm">
+      <div class="cursor-pointer hover:text-black">English <span class="text-xs">▼</span></div>
+      <div class="cursor-pointer hover:text-black">USD <span class="text-xs">▼</span></div>
+      <div class="cursor-pointer hover:text-black flex items-center space-x-1" aria-label="Account">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A7 7 0 0112 15a7 7 0 016.879 2.804m-6.879 3.196a7 7 0 01-6.879-6.879m13.758 0A7 7 0 0112 3a7 7 0 01-6.879 6.879m13.758 0H18" />
+        </svg>
+        <span>Account</span>
+      </div>
+      <div class="cursor-pointer hover:text-black flex items-center space-x-1 relative" aria-label="Favorites">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M10 18h4" />
+        </svg>
+        <span>0</span>
+      </div>
+      <div class="cursor-pointer hover:text-black flex items-center space-x-1 relative" aria-label="Cart">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9h14l-2-9m-5 0v6" />
+        </svg>
+        <span>0</span>
+      </div>
+    </div>
+    <button class="sm:hidden p-2 border border-gray-300 rounded" aria-label="Open menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"  viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+  <h1 class="text-3xl font-bold mb-6">Fashion</h1>
+
+  <nav class="mb-8 space-x-3">
+    <button name="gender" class="bg-gray-200 hover:bg-gray-300 font-semibold rounded px-4 py-1.5">Men</button>
+    <button name="gender" class="bg-gray-200 hover:bg-gray-300 font-semibold rounded px-4 py-1.5">Women</button>
+  </nav>
+
+  <div class="flex flex-col md:flex-row gap-8">
+
+    
+    <aside class="w-full md:w-64 flex-shrink-0 space-y-8">
+
+      
+      <section>
+        <h2 class="font-bold mb-4">Colors</h2>
+        <ul class="space-y-2 text-sm max-w-max">
+          <li class="flex items-center space-x-3">
+            <div class="w-4 h-4 bg-black rounded"></div>
+            <span>Black</span><span class="ml-auto text-gray-400">(16)</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <div class="w-4 h-4 bg-blue-600 rounded"></div>
+            <span>Blue</span><span class="ml-auto text-gray-400">(2)</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <div class="w-4 h-4 bg-yellow-800 rounded"></div>
+            <span>Brown</span><span class="ml-auto text-gray-400">(4)</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <div class="w-4 h-4 bg-gray-300 rounded"></div>
+            <span>Gray</span><span class="ml-auto text-gray-400">(6)</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <div class="w-4 h-4 bg-green-600 rounded"></div>
+            <span>Green</span><span class="ml-auto text-gray-400">(6)</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <div class="w-4 h-4 bg-yellow-200 rounded"></div>
+            <span>Light Brown</span><span class="ml-auto text-gray-400">(3)</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <div class="w-4 h-4 bg-indigo-900 rounded"></div>
+            <span>Navy</span><span class="ml-auto text-gray-400">(5)</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <div class="w-4 h-4 bg-orange-500 rounded"></div>
+            <span>Orange</span><span class="ml-auto text-gray-400">(1)</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <div class="w-4 h-4 bg-pink-300 rounded"></div>
+            <span>Pink</span><span class="ml-auto text-gray-400">(2)</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <div class="w-4 h-4 bg-red-600 rounded"></div>
+            <span>Red</span><span class="ml-auto text-gray-400">(4)</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <input type="checkbox" id="white" name="color" />
+            <label for="white" class="cursor-pointer">White</label>
+            <span class="ml-auto text-gray-400">(8)</span>
+          </li>
+        </ul>
+      </section>
+
+      
+      <section>
+        <h2 class="font-bold mb-2">Brands</h2>
+        <div class="relative text-sm">
+          <input type="search" placeholder="search brands ..." aria-label="search brands" class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring focus:ring-red-400" />
+          <button class="absolute right-2 top-2 text-gray-400 hover:text-black" aria-label="Search brands">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"  viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m0 0a7.5 7.5 0 1110.6-10.6 7.5 7.5 0 01-10.6 10.6z"/></svg>
+          </button>
+        </div>
+        <div class="brands-scroll mt-3 border border-gray-300 rounded p-2 space-y-2">
+          <label class="flex items-center space-x-2 cursor-pointer">
+            <input type="checkbox" />
+            <span>Amazon (8)</span>
+          </label>
+          <label class="flex items-center space-x-2 cursor-pointer">
+            <input type="checkbox" />
+            <span>Apple (11)</span>
+          </label>
+          <label class="flex items-center space-x-2 cursor-pointer">
+            <input type="checkbox" />
+            <span>Ashley (3)</span>
+          </label>
+          <label class="flex items-center space-x-2 cursor-pointer">
+            <input type="checkbox" />
+            <span>Sportify (7)</span>
+          </label>
+          <label class="flex items-center space-x-2 cursor-pointer">
+            <input type="checkbox" />
+            <span>Limited (5)</span>
+          </label>
+          <label class="flex items-center space-x-2 cursor-pointer">
+            <input type="checkbox" />
+            <span>Notable (2)</span>
+          </label>
+        </div>
+      </section>
+
+      
+      <section>
+        <h2 class="font-bold mb-4">Price</h2>
+        <form class="space-y-2 text-sm">
+          <label class="flex items-center space-x-3">
+            <input type="checkbox" checked />
+            <span>0 - $100</span>
+          </label>
+          <label class="flex items-center space-x-3">
+            <input type="checkbox" />
+            <span>$100 - $200</span>
+          </label>
+          <label class="flex items-center space-x-3">
+            <input type="checkbox" />
+            <span>$200 - $500</span>
+          </label>
+          <label class="flex items-center space-x-3">
+            <input type="checkbox" />
+            <span>$500+</span>
+          </label>
+          <div class="flex space-x-2 mt-2">
+            <input type="number" placeholder="Min" class="w-1/2 border border-gray-300 rounded px-2 py-1" />
+            <input type="number" placeholder="Max" class="w-1/2 border border-gray-300 rounded px-2 py-1" />
+          </div>
+          <button type="submit" class="mt-2 px-4 py-2 bg-black text-white rounded text-sm font-semibold">FILTER</button>
+        </form>
+      </section>
+
+      
+      <section>
+        <h2 class="font-bold mb-4">Size</h2>
+        <form class="space-y-1 text-sm max-h-48 overflow-y-auto pr-2">
+          <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" name="size" /> <span>US 8 (1)</span></label>
+          <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" name="size" /> <span>US 9 (1)</span></label>
+          <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" name="size" /> <span>US 10 (1)</span></label>
+          <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" name="size" /> <span>US 11 (1)</span></label>
+          <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" name="size" /> <span>US 12 (1)</span></label>
+          <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" name="size" /> <span>XS (5)</span></label>
+          <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" name="size" /> <span>S (7)</span></label>
+          <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" name="size" /> <span>M (10)</span></label>
+          <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" name="size" /> <span>L (10)</span></label>
+          <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" name="size" /> <span>XL (9)</span></label>
+          <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" name="size" /> <span>XXL (7)</span></label>
+        </form>
+      </section>
+    </aside>
+
+    
+    <section class="flex-grow">
+
+      <div class="flex flex-wrap items-center justify-between text-xs text-gray-600 mb-6 space-y-2 sm:space-y-0">
+        <div>Showing 1–28 of 32 results</div>
+        <label class="flex items-center space-x-1 cursor-pointer select-none">
+          <input type="checkbox" />
+          <span>Show only products on sale</span>
+        </label>
+        <div class="flex items-center space-x-2">
+          <span>Show:</span>
+          <button class="font-semibold cursor-pointer hover:text-black">28</button>
+          <button class="cursor-pointer hover:text-black">56</button>
+          <button class="cursor-pointer hover:text-black">84</button>
+        </div>
+        <div class="flex items-center space-x-2">
+          <span>Sort:</span>
+          <select class="text-gray-600 text-xs border border-gray-300 rounded px-2 py-1 cursor-pointer" aria-label="Sort products">
+            <option selected> Sort by latest</option>
+            <option>Sort by price: low to high</option>
+            <option>Sort by price: high to low</option>
+            <option>Sort by popularity</option>
+          </select>
+        </div>
+        <div class="view-icons flex items-center space-x-2">
+          <button aria-label="Grid view" title="Grid view" class="text-gray-700 font-bold border border-gray-200 px-2 rounded">▦</button>
+          <button aria-label="List view" title="List view" class="text-gray-400 hover:text-black">≡</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    
+        <article class="product-card border border-gray-100 p-3 rounded group relative cursor-pointer">
+          <div class="absolute top-3 left-3 bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded select-none">HOT</div>
+          <img src="images.jpeg" alt="Modern silver and black men's sneaker shoe for athletic casual wear" loading="lazy" class="mx-auto mb-3" onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/129378b0-e227-4215-87f5-08d6e1541d9d.png';" />
+          <h3 class="text-sm font-semibold mb-1 leading-tight">Nike Air Max Unisex SYSTM Men Sneaker Shoes</h3>
+          <p class="font-bold text-lg">$148</p>
+        </article>
+
+        <article class="product-card border border-gray-100 p-3 rounded group relative cursor-pointer">
+          <img src="download.jpeg" alt="Black modern classic aviator style sunglasses for men" loading="lazy" class="mx-auto mb-3" onerror="this.onerror=null;this.src='https://placehold.co/256x256?text=Image+not+found';" />
+          <h3 class="text-sm font-semibold mb-1 leading-tight">100% UV Protected Sunglasses For Men</h3>
+          <p class="font-bold text-lg">$123</p>
+        </article>
+
+        <article class="product-card border border-gray-100 p-3 rounded group relative cursor-pointer">
+          <img src="skirrt.jpeg" alt="Blue denim mini skirt with button accents for women" loading="lazy" class="mx-auto mb-3" onerror="this.onerror=null;this.src='https://placehold.co/256x256?text=Image+not+found';" />
+          <h3 class="text-sm font-semibold mb-1 leading-tight">LV Women Leather Accent Denim Mini Skirt</h3>
+          <p class="font-bold text-lg">$1,390</p>
+        </article>
+
+        <article class="product-card border border-gray-100 p-3 rounded group relative cursor-pointer">
+          <img src="sweater.jpeg" alt="Brown knitted holiday sweater laid flat" loading="lazy" class="mx-auto mb-3" onerror="this.onerror=null;this.src='https://placehold.co/256x256?text=Image+not+found';" />
+          <h3 class="text-sm font-semibold mb-1 leading-tight">A Different Christmas Knit Holiday Sweater</h3>
+          <p class="font-bold text-lg">$50 – $65</p>
+        </article>
+
+        
+        <article class="product-card border border-gray-100 p-3 rounded group relative cursor-pointer">
+          <img src="hoodie.jpeg" alt="Light brown men's winter puff insulated jacket with a collar" loading="lazy" class="mx-auto mb-3" onerror="this.onerror=null;this.src='https://placehold.co/256x256?text=Image+not+found';" />
+          <h3 class="text-sm font-semibold mb-1 leading-tight">
+                                                                    Unbothered Unisex Hoodie Sarcastic Pullover - White</h3>
+          <p class="font-bold text-lg">$190</p>
+        </article>
+
+
+
+         <article class="product-card border border-gray-100 p-3 rounded group relative cursor-pointer">
+          <img src="download (1).jpeg" alt="Light brown men's winter puff insulated jacket with a collar" loading="lazy" class="mx-auto mb-3" onerror="this.onerror=null;this.src='https://placehold.co/256x256?text=Image+not+found';" />
+          <h3 class="text-sm font-semibold mb-1 leading-tight">Mens Winter Jacket Collar Warm Cotton, Coat Male</h3>
+          <p class="font-bold text-lg">$115</p>
+        </article>
+
+        <article class="product-card border border-gray-100 p-3 rounded group relative cursor-pointer">
+          <img src="hats.jpeg" alt="Blue baseball cap with logo embroidered on front" loading="lazy" class="mx-auto mb-3" onerror="this.onerror=null;this.src='https://placehold.co/256x256?text=Image+not+found';" />
+          <h3 class="text-sm font-semibold mb-1 leading-tight">Athletics Embroidered Relaxed Cap - Blue</h3>
+          <p class="font-bold text-lg">$59</p>
+        </article>
+
+        <article class="product-card border border-gray-100 p-3 rounded group relative cursor-pointer">
+          <img src="bag.jpeg" alt="Red leather women handbag with short handles and strap" loading="lazy" class="mx-auto mb-3" onerror="this.onerror=null;this.src='https://placehold.co/256x256?text=Image+not+found';" />
+          <h3 class="text-sm font-semibold mb-1 leading-tight">Women's Genuine Leather Handbag Red Tote Bag</h3>
+          <p class="font-bold text-lg">$230</p>
+        </article>
+
+        <article class="product-card border border-gray-100 p-3 rounded group relative cursor-pointer">
+          <img src="shirt.jpeg" alt="Black cotton short sleeve t-shirt with small chest pocket design" loading="lazy" class="mx-auto mb-3" onerror="this.onerror=null;this.src='https://placehold.co/256x256?text=Image+not+found';" />
+          <h3 class="text-sm font-semibold mb-1 leading-tight">Classic Black Cotton Crew Neck T-Shirt For Men</h3>
+          <p class="font-bold text-lg">$45</p>
+        </article>
+       
+      </div>
+
+      
+      <nav aria-label="Pagination" class="flex space-x-3 justify-center mt-12 mb-6">
+        <button aria-current="page" class="px-4 py-2 border border-gray-300 rounded bg-black text-white cursor-default">1</button>
+        <button class="px-4 py-2 border border-gray-300 rounded hover:bg-gray-100">2</button>
+        <button class="px-4 py-2 border border-gray-300 rounded hover:bg-gray-100">Next</button>
+      </nav>
+
+    </section>
+
+  </div>
+
+</main>
+
+
+<button aria-label="Scroll to top" id="scrollTopBtn" 
+  class="fixed bottom-6 right-6 bg-gray-900 text-white rounded-full p-3 shadow-lg hover:bg-gray-700 transition-opacity opacity-0 pointer-events-none" 
+  style="transition: opacity 0.3s ease;">
+  ⇧
+</button>
+
+<footer style="background-color: #111; color: #fff; font-family: Arial, sans-serif; padding: 40px 20px;">
+  <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
+
+    
+    <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+      <h2 style="color: white; font-size: 30px; font-weight: bold;">M<span style="color: red;">e</span>rto</h2>
+      <p>📍 29 SE 2nd Ave, Miami<br>Florida 33131, United States</p>
+      <p>✉ info @example.com</p>
+      <p style="font-weight: bold; font-size: 16px;">(+92) 3942 7879</p>
+    </div>
+
+    
+    <div style="flex: 1; min-width: 150px; margin-bottom: 20px;">
+      <h4 style="font-weight: bold;">SHOPPING</h4>
+      <p>Wishlist</p>
+      <p>Shop by Brand</p>
+      <p>Offers</p>
+      <p>Track order</p>
+      <p>Size Guide</p>
+    </div>
+
+    
+    <div style="flex: 1; min-width: 150px; margin-bottom: 20px;">
+      <h4 style="font-weight: bold;">INFORMATION</h4>
+      <p>Track Order</p>
+      <p>Shipping & Returns</p>
+      <p>About us</p>
+      <p>Help</p>
+      <p>Gift Cards</p>
+    </div>
+
+    
+    <div style="flex: 1; min-width: 150px; margin-bottom: 20px;">
+      <h4 style="font-weight: bold;">ACCOUNT</h4>
+      <p>Cart</p>
+      <p>My account</p>
+      <p>My orders</p>
+      <p>Wishlist</p>
+      <p>Affiliate Program</p>
+    </div>
+
+   
+    <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+      <h4 style="font-weight: bold;">Let's keep in touch</h4>
+      <input type="email" placeholder="Enter your email address"
+        style="padding: 8px; width: 80%; border: none; border-radius: 4px; margin-bottom: 10px;">
+      <div style="font-size: 20px;">
+        🌐 📱 🎥 📷
+      </div>
+    </div>
+
+  </div>
+
+  
+  <div style="border-top: 1px solid #000000; margin-top: 20px; padding-top: 20px; text-align: center; font-size: 14px;">
+    <p>Copyright © Merto. All Rights Reserved</p>
+  </div>
+</footer>
+
+<script>
+  
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      scrollTopBtn.style.opacity = "1";
+      scrollTopBtn.style.pointerEvents = "auto";
+    } else {
+      scrollTopBtn.style.opacity = "0";
+      scrollTopBtn.style.pointerEvents = "none";
+    }
+  });
+  scrollTopBtn.addEventListener("click", () => {
+    window.scrollTo({top: 0, behavior: "smooth"});
+  });
+</script>
+
+</body>
+</html>
+

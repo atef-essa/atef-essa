@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Merto Contact Us</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: #fff;
+    color: #111;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  header {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+  }
+  .header-top {
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px 20px;
+    font-size: 14px;
+    gap: 10px;
+  }
+  .header-top div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .phone-icon, .search-icon, .user-icon, .cart-icon, .language-currency {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    stroke: black;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .phone-icon {
+    stroke: #000;
+  }
+  .header-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 60px;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 28px;
+    user-select: none;
+  }
+  .logo span {
+    color: red;
+  }
+  .nav-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .contact-top {
+    font-size: 14px;
+    user-select: none;
+  }
+
+  nav {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+  nav ul {
+    margin: 0;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    height: 44px;
+    font-weight: 600;
+    font-size: 13px;
+    user-select: none;
+  }
+  nav ul li {
+    margin-right: 20px;
+    white-space: nowrap;
+  }
+  nav ul li:last-child {
+    margin-right: 0;
+  }
+  nav ul li .dropdown-arrow {
+    margin-left: 4px;
+    font-size: 9px;
+  }
+  
+  nav ul li:hover {
+    cursor: pointer;
+  }
+
+  main {
+    max-width: 960px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+ h1 {
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    user-select: none;
+    text-align: center; 
+  }
+  .address {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    color: #777;
+    user-select: none;
+    text-align: center; }
+
+  .contact-items {
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+    font-size: 14px;
+    user-select: none;
+  }
+  .contact-item {
+    flex: 1 1 160px;
+    min-width: 160px;
+  }
+  .contact-item svg {
+    width: 28px;
+    height: 28px;
+    stroke: #111;
+    stroke-width: 1.6;
+    fill: none;
+    margin-bottom: 8px;
+  }
+  .contact-item strong {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .contact-item small {
+    color: #888;
+    font-size: 13px;
+    line-height: 1.3;
+  }
+  .contact-item a {
+    font-size: 14px;
+    color: #111;
+    border-bottom: 1px solid #111;
+  }
+  .chat-live {
+    color: green;
+    font-weight: 600;
+  }
+  .social-icons {
+    display: flex;
+    gap: 12px;
+    font-size: 18px;
+  }
+  .social-icons svg {
+    width: 18px;
+    height: 18px;
+    stroke: #111;
+    stroke-width: 1.8;
+    fill: none;
+    cursor: pointer;
+  }
+  .social-icons svg:hover {
+    stroke: #0073e6;
+  }
+
+  .form-section {
+    margin-top: 60px;
+  }
+  .form-section strong {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 18px;
+    font-size: 16px;
+    user-select: none;
+  }
+  form {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  input[type="text"],
+  input[type="email"] {
+    flex: 1 1 45%;
+    padding: 12px 14px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+  }
+  input[type="text"]::placeholder,
+  input[type="email"]::placeholder {
+    color: #aaa;
+  }
+
+  @media (max-width: 600px) {
+    .contact-items {
+      flex-direction: column;
+      gap: 40px;
+    }
+    form {
+      flex-direction: column;
+    }
+    input[type="text"],
+    input[type="email"] {
+      flex-basis: 100%;
+    }
+    nav ul {
+      font-size: 11px;
+      flex-wrap: wrap;
+      gap: 12px;
+      height: auto;
+      padding: 8px 20px;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-top">
+    <div class="phone-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" >
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 
+        19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 
+        19.86 19.86 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 
+        1.72 13 13 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 
+        16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 13 13 0 0 0 2.81.7A2 
+        2 0 0 1 22 16.92z"></path>
+      </svg>
+    </div>
+    <div class="contact-top-text"> Contact us 24/7 <strong> (+92) 3942 7879 </strong></div>
+  </div>
+  <div class="header-main">
+    <div class="logo" aria-label="Merto logo">Mer<span>t</span>o</div>
+
+    <div class="nav-container"> 
+      <select aria-label="Select category" style="font-size:14px; padding: 6px 8px; border-radius: 3px; border: 1px solid #ccc;">
+        <option>All Categories</option> 
+      </select>
+      <input type="search" placeholder="Search for products" aria-label="Search for products" style="padding:6px 8px; font-size:14px; border-radius:3px; border: 1px solid #777; outline:none; width:200px;" />
+      <button aria-label="Search" style="padding: 7px 12px; background-color: #111; color:#fff; border:none; border-radius: 3px; cursor:pointer;">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" >
+          <circle cx="11" cy="11" r="7" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="nav-container" style="gap: 15px; font-size: 14px; align-items:center;">
+      <div> 🇺🇸 English </div> 
+      <div> USD </div>
+      <div style="display:flex; align-items:center; gap:6px; cursor:pointer;">
+        <svg class="user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" >
+          <circle cx="12" cy="7" r="4"></circle>
+          <path d="M5.5 21a6.5 6.5 0 0 1 13 0"></path>
+        </svg>
+        <strong>Account</strong>
+      </div>
+      <div style="position:relative; cursor:pointer;" aria-label="Shopping cart">
+        <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" >
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <span style="position:absolute; top:-8px; right:-8px; background:#e00; color:#fff; font-size:11px; font-weight:700; border-radius:50%; width:18px; height:18px; display:flex; align-items:center; justify-content:center; user-select:none;">0</span>
+      </div>
+    </div>
+  </div>
+  <nav>
+    <ul>
+      <li>☰ SHOP BY CATEGORIES</li>
+      <li>Homepages </li>
+      <li>Categories </li>
+      <li>Products </li>
+      <li>Pages </li>
+      <li>About us</li>
+      <li>Blog</li>
+      <li>🛒Best Discount</li>
+      <li>Recently viewed ☰</li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <h1>Contact us</h1>
+  <div class="address" aria-label="Address">
+    34 Main Street, Los Angeles 9021<br />United States
+  </div>
+
+  <section class="contact-items" aria-label="Contact Information">
+    <article class="contact-item" role="region" aria-labelledby="customer-service-title">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 8.63 18a19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 13 13 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 13 13 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      <strong id="customer-service-title">Customer service</strong>
+      <a href="tel:+9239427879" aria-label="Call customer service phone number">+92 3942 7879</a>
+      <small>Call us from 8am to 8pm</small>
+    </article>
+
+    <article class="contact-item" role="region" aria-labelledby="chat-with-us-title">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+      <strong id="chat-with-us-title">Chat with us</strong>
+      <div><span class="chat-live" aria-live="polite">● Live Chat</span></div>
+      <small>Daily: 8 am to 11 pm</small>
+    </article>
+
+    <article class="contact-item" role="region" aria-labelledby="write-to-us-title">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M22 12v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h11"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      <strong id="write-to-us-title">Write to us</strong>
+      <a href="mailto:contact@example.com">contact@example.com</a>
+    </article>
+
+    <article class="contact-item" role="region" aria-labelledby="follow-us-title">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"></circle><path d="M5.5 21a6.5 6.5 0 0 1 13 0"></path></svg>
+      <strong id="follow-us-title">Follow us</strong>
+      <div class="social-icons" aria-label="Social media links">
+        <svg aria-hidden="true" title="Facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0 -5 5v3H7v4h3v8h4v-8h3l1-4h-4v-2a1 1 0 0 1 1-1h3z"/></svg>
+        <svg aria-hidden="true" title="TikTok" viewBox="0 0 24 24"><path d="M9 22a7 7 0 0 1-7-7v-5h4v5a3 3 0 0 0 3 3z"/><path d="M15 2v8a5 5 0 0 0 5 5h3v4h-6a9 9 0 0 1-9-9"/></svg>
+        <svg aria-hidden="true" title="YouTube" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0 -1.94-1.94c-1.71-.46-8.6-.46-8.6-.46s-6.89 0-8.6 .46a2.78 2.78 0 0 0 -1.94 1.94c-.46 1.71-.46 5.29-.46 5.29s0 3.58 .46 5.29a2.78 2.78 0 0 0 1.94 1.94c1.71 .46 8.6 .46 8.6 .46s6.89 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.94c.46-1.71.46-5.29.46-5.29s0-3.58-.46-5.29z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+        <svg aria-hidden="true" title="X" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+        <svg aria-hidden="true" title="Instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="3"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+      </div>
+    </article>
+  </section>
+
+  <section class="form-section" aria-label="Contact form">
+    <strong>Do you have some questions?</strong>
+    <form>
+      <input type="text" placeholder="Name and Surname *" aria-required="true" />
+      <input type="email" placeholder="Email *" aria-required="true" />
+      <input type="text" placeholder="Subject *" aria-required="true" />
+        <textarea placeholder="Message *" aria-required="true" style="flex: 1 1 100%; padding: 14px 14px; border: 1px solid #ddd; border-radius: 10px; font-size: 20px; font-family: 'Poppins', sans-serif;"></textarea>
+      <br>
+    
+
+
+<div class="map-container">
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d423286.27409752904!2d-118.69191364803014!3d34.02016130678765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c0b6eecf38ff%3A0x2f0b0a63b34b7ba4!2sLos%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2sus!4v1690134567890!5m2!1sen!2sus" 
+    width="1000" 
+    height="350" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+    </form>
+
+  </section>
+</main>
+
+
+<footer style="background-color: #111; color: #fff; font-family: Arial, sans-serif; padding: 40px 20px;">
+  <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
+
+    
+    <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+      <h2 style="color: white; font-size: 30px; font-weight: bold;">M<span style="color: red;">e</span>rto</h2>
+      <p>📍 29 SE 2nd Ave, Miami<br>Florida 33131, United States</p>
+      <p>✉ info @example.com</p>
+      <p style="font-weight: bold; font-size: 16px;">(+92) 3942 7879</p>
+    </div>
+
+    
+    <div style="flex: 1; min-width: 150px; margin-bottom: 20px;">
+      <h4 style="font-weight: bold;">SHOPPING</h4>
+      <p>Wishlist</p>
+      <p>Shop by Brand</p>
+      <p>Offers</p>
+      <p>Track order</p>
+      <p>Size Guide</p>
+    </div>
+
+    
+    <div style="flex: 1; min-width: 150px; margin-bottom: 20px;">
+      <h4 style="font-weight: bold;">INFORMATION</h4>
+      <p>Track Order</p>
+      <p>Shipping & Returns</p>
+      <p>About us</p>
+      <p>Help</p>
+      <p>Gift Cards</p>
+    </div>
+
+    
+    <div style="flex: 1; min-width: 150px; margin-bottom: 20px;">
+      <h4 style="font-weight: bold;">ACCOUNT</h4>
+      <p>Cart</p>
+      <p>My account</p>
+      <p>My orders</p>
+      <p>Wishlist</p>
+      <p>Affiliate Program</p>
+    </div>
+
+   
+    <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+      <h4 style="font-weight: bold;">Let's keep in touch</h4>
+      <input type="email" placeholder="Enter your email address"
+        style="padding: 8px; width: 80%; border: none; border-radius: 4px; margin-bottom: 10px;">
+      <div style="font-size: 20px;">
+        🌐 📱 🎥 📷
+      </div>
+    </div>
+
+  </div>
+
+  
+  <div style="border-top: 1px solid #000000; margin-top: 20px; padding-top: 20px; text-align: center; font-size: 14px;">
+    <p>Copyright © Merto. All Rights Reserved</p>
+  </div>
+</footer>
+
+</body>
+</html>
+
